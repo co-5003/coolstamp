@@ -1,5 +1,5 @@
 document.addEventListener("DOMContentLoaded", function () {
-    const liffId = "あなたのLIFF ID"; // 設定する
+    const liffId = "2007046643-W6QOGlYV"; // 設定する
 
     liff.init({ liffId })
         .then(() => liff.getProfile())
@@ -10,7 +10,7 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 function sendStamp(userId, spotId) {
-    const gasUrl = "GASのURL"; // 設定する
+    const gasUrl = "https://script.google.com/macros/s/AKfycbxhqrrtaKFOdWhUacWuBR-6VFsfvndxFfHHeqdvJBwluOJoVb51IHM9GTb43baRl-5mGg/exec"; // 設定する
 
     fetch(gasUrl, {
         method: "POST",
