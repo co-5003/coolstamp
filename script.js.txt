@@ -1,0 +1,23 @@
+document.addEventListener("DOMContentLoaded", function () {
+    const liffId = "あなたのLIFF ID"; // 設定する
+
+    liff.init({ liffId })
+        .then(() => liff.getProfile())
+        .then(profile => {
+            const spotId = new URLSearchParams(window.location.search).get("id");
+            if (spotId) sendStamp(profile.userId, spotId);
+        });
+});
+
+function sendStamp(userId, spotId) {
+    const gasUrl = "GASのURL"; // 設定する
+
+    fetch(gasUrl, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ userId, spotId })
+    })
+    .then(response => response.json())
+    .then(data => alert(data.message))
+    .then(() => liff.closeWindow());
+}
